@@ -29,6 +29,11 @@ def generate_voice_speech(text_to_speak: str, voice_name: str = "Puck") -> str:
         return f"Error creating audio: {str(e)}"
 
 if __name__ == "__main__":
-    # Runs the streamable MCP server on port 8080
-    port = int(os.environ.get("PORT", 8080))
-    mcp.run(transport="streamable-http", host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 10000))
+    mcp.run(
+        transport="streamable-http",
+        host="0.0.0.0",
+        port=port,
+        stateless_http=True,
+        json_response=True,
+    )

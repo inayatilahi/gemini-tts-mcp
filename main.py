@@ -1,9 +1,16 @@
 import os
 from fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 from google import genai
 from google.genai import types
 
-mcp = FastMCP("GeminiTTS")
+mcp = FastMCP(
+    "GeminiTTS",
+    transport_security=TransportSecuritySettings(
+        enable_dns_rebinding_protection=False
+    ),
+)
+
 client = genai.Client(api_key=os.environ.get("AQ.Ab8RN6J8tBUN_Sj4D7ed42qvKcNTj2gS6BsKU2P1cknS_HTRWg"))
 
 @mcp.tool()
@@ -35,5 +42,4 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=port,
         stateless_http=True,
-        json_response=True,
     )

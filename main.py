@@ -11,7 +11,7 @@ mcp = FastMCP(
     ),
 )
 
-client = genai.Client(api_key=os.environ.get("AQ.Ab8RN6J8tBUN_Sj4D7ed42qvKcNTj2gS6BsKU2P1cknS_HTRWg"))
+client = genai.Client(api_key=os.environ.get("AQ.Ab8RN6KevH4Cu9ekHinDkt4AzHWmnnhc6zF1gtPQE5zwJCsANA"))
 
 @mcp.tool()
 def generate_voice_speech(text_to_speak: str, voice_name: str = "Puck") -> str:
